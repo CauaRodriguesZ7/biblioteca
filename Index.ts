@@ -1,30 +1,51 @@
-import { GeneroLivro } from "./GeneroLivro";
-import { livro } from "./Livro";
-import { StatusLivro } from "./StatusLivro";
-
-//Criação de livros para biblioteca --
-const livro1 = new livro("titulo1", "fulano autor", GeneroLivro.DRAMA, StatusLivro.DISPONIVEL);
-const livro2 = new livro("titulo2", "beltrano autor", GeneroLivro.ROMANCE, StatusLivro.EMPRESTADO);
-const livro3 = new livro("titulo3", "ciclano autor", GeneroLivro.FANTASIA, StatusLivro.ATRASADO);
+import { livro1, livro2, livro3, livro4, livro5, livro6, livro7 } from "./BaseBiblioteca";
 
 
 
+const livros = [livro1, livro2, livro3, livro4, livro5, livro6, livro7];
+const valorMultaDiaria = 1;
 
 
-// Cria biblioteca
-const biblioteca = { livro1, livro2, livro3 }
-// Exibe toda biblioteca
-//console.log(biblioteca);
- 
-// Exibe conforme seu status
-    if(livro2.getStatus() == "Disponivel para Emprestimo"){
-        console.log(livro2);
-    }else if (livro2.getStatus() == "Livro ja emprestado") {
-        console.log(livro2);
-    }else if(livro2.getStatus() == "Livro reservado"){
-        console.log(livro2);
-    }else if(livro2.getStatus() == "Nao devolvido dentro do prazo"){
-        console.log(livro2)
-    }else{
-        console.log("Não encontrato");
-    }
+// Livros disponiveis
+console.log("-------DISPONIVEL----------------") 
+livros.forEach((value)=>{
+    if(value.status == "Disponivel para Emprestimo" ){              
+        console.log("Titulo: ", value.titulo);
+        console.log("Status: ", value.status);        
+        console.log("-----------------------------------")
+     }   
+});
+
+// Livros Emprestados
+console.log("---EMPRESTADO------------")        
+livros.forEach((value)=>{
+    if(value.status == "Livro ja emprestado" ){        
+        console.log("Titulo: ", value.titulo);
+        console.log("Status: ", value.status);        
+        console.log("-----------------------------------")
+     }   
+});
+
+// Livros Reservados
+ console.log("---RESERVADO------------")       
+livros.forEach((value)=>{
+    if(value.status == "Livro reservado" ){        
+        console.log("Titulo: ", value.titulo);
+        console.log("Status: ", value.status);        
+        console.log("-----------------------------------")
+     }   
+});
+
+// Livros atrasados/Multa do atraso
+console.log("---ATRASADO------------") 
+livros.forEach((value)=>{
+    if(value.status == "Nao devolvido dentro do prazo" ){
+        let totalMulta = valorMultaDiaria * value.atraso        
+        console.log("Titulo: ", value.titulo);
+        console.log("Status: ", value.status);
+        console.log(`Valor da multa: ${value.atraso} reais`);        
+        console.log("-----------------------------------")
+     }   
+});
+
+
