@@ -3,6 +3,7 @@
 import { GeneroLivro } from "./GeneroLivro";
 import { StatusLivro } from "./StatusLivro";
 
+//cadastro de livros da biblioteca
 export const livro1 = { id: 1, titulo: "livro1", genero: GeneroLivro.DRAMA, status: StatusLivro.DISPONIVEL, atraso: 0}
 export const livro2 = { id: 2, titulo: "livro2", genero: GeneroLivro.DRAMA, status: StatusLivro.DISPONIVEL, atraso: 0}
 export const livro3 = { id: 3, titulo: "livro3", genero: GeneroLivro.DRAMA, status: StatusLivro.EMPRESTADO, atraso: 0}
