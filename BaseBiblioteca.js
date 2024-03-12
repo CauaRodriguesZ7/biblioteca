@@ -1,14 +1,53 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.livro7 = exports.livro6 = exports.livro5 = exports.livro4 = exports.livro3 = exports.livro2 = exports.livro1 = void 0;
-// Base de livros
-var GeneroLivro_1 = require("./GeneroLivro");
+exports.BaseBiblioteca = void 0;
 var StatusLivro_1 = require("./StatusLivro");
-//cadastro de livros da biblioteca
-exports.livro1 = { id: 1, titulo: "livro1", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.DISPONIVEL, atraso: 0 };
-exports.livro2 = { id: 2, titulo: "livro2", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.DISPONIVEL, atraso: 0 };
-exports.livro3 = { id: 3, titulo: "livro3", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.EMPRESTADO, atraso: 0 };
-exports.livro4 = { id: 4, titulo: "livro4", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.ATRASADO, atraso: 1 };
-exports.livro5 = { id: 5, titulo: "livro4", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.ATRASADO, atraso: 2 };
-exports.livro6 = { id: 6, titulo: "livro4", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.ATRASADO, atraso: 5 };
-exports.livro7 = { id: 7, titulo: "livro4", genero: GeneroLivro_1.GeneroLivro.DRAMA, status: StatusLivro_1.StatusLivro.ATRASADO, atraso: 10 };
+//Arrays vazios para funcionar como os "banco de dados"
+var BaseBiblioteca = /** @class */ (function () {
+    function BaseBiblioteca(listaDeLivros, listaDeUsuarios) {
+        this.listaDeLivros = listaDeLivros;
+        this.listaDeUsuarios = listaDeUsuarios;
+    }
+    //Listando e gerando usuario cadastrado
+    BaseBiblioteca.prototype.geradorUsuario = function (usuario) {
+        var gerador = false;
+        for (var _i = 0, _a = this.listaDeUsuarios; _i < _a.length; _i++) {
+            var usuarioCadastrado = _a[_i];
+            if (usuarioCadastrado.getNome() === usuario.getNome()) {
+                gerador = true;
+            }
+        }
+        return gerador;
+    };
+    //   listar livros disponiveis
+    BaseBiblioteca.prototype.listaDeLivrosDisponiveis = function () {
+        var listaLivros = "Livros disponiveis para emprestimo: ";
+        for (var _i = 0, _a = this.listaDeLivros; _i < _a.length; _i++) {
+            var livro = _a[_i];
+            if (livro.getStatus() === StatusLivro_1.StatusLivro.DISPONIVEL) {
+                listaLivros += "".concat(livro.getTitulo(), ", ");
+            }
+        }
+        if (listaLivros === "Livros disponiveis para emprestimo: ") {
+            return "Nenhum livro disponivel no momento.";
+        }
+        else
+            return listaLivros;
+    };
+    BaseBiblioteca.prototype.listaDeLivrosEmprestados = function () {
+        var listaLivros = "Lista de livros emprestados: ";
+        for (var _i = 0, _a = this.listaDeLivros; _i < _a.length; _i++) {
+            var livro = _a[_i];
+            if (livro.getStatus() === StatusLivro_1.StatusLivro.EMPRESTADO) {
+                listaLivros += "".concat(livro.getTitulo(), ", ");
+            }
+        }
+        if (listaLivros === "Lista de livros emprestados: ") {
+            return "Nenhum livro emprestado no momento.";
+        }
+        else
+            return listaLivros;
+    };
+    return BaseBiblioteca;
+}());
+exports.BaseBiblioteca = BaseBiblioteca;

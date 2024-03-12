@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Livros = void 0;
+// Atributos dos livros 
 var Livros = /** @class */ (function () {
     function Livros(titulo, autor, genero, status) {
         this.titulo = titulo;
@@ -8,6 +9,7 @@ var Livros = /** @class */ (function () {
         this.genero = genero; // array vazio
         this.status = status; //array vazio
     }
+    //Retornando atributos
     Livros.prototype.getTitulo = function () {
         return this.titulo;
     };

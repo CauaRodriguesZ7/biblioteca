@@ -1,14 +1,56 @@
 
 // Base de livros
-import { GeneroLivro } from "./GeneroLivro";
+import { Usuario } from "./Usuario";
+import { Livros } from "./Livros";
 import { StatusLivro } from "./StatusLivro";
 
-//cadastro de livros da biblioteca
-export const livro1 = { id: 1, titulo: "livro1", genero: GeneroLivro.DRAMA, status: StatusLivro.DISPONIVEL, atraso: 0}
-export const livro2 = { id: 2, titulo: "livro2", genero: GeneroLivro.DRAMA, status: StatusLivro.DISPONIVEL, atraso: 0}
-export const livro3 = { id: 3, titulo: "livro3", genero: GeneroLivro.DRAMA, status: StatusLivro.EMPRESTADO, atraso: 0}
-export const livro4 = { id: 4, titulo: "livro4", genero: GeneroLivro.DRAMA, status: StatusLivro.ATRASADO,   atraso: 1}
-export const livro5 = { id: 5, titulo: "livro4", genero: GeneroLivro.DRAMA, status: StatusLivro.ATRASADO,   atraso: 2}
-export const livro6 = { id: 6, titulo: "livro4", genero: GeneroLivro.DRAMA, status: StatusLivro.ATRASADO,   atraso: 5}
-export const livro7 = { id: 7, titulo: "livro4", genero: GeneroLivro.DRAMA, status: StatusLivro.ATRASADO,   atraso: 10}
+//Arrays vazios para funcionar como os "banco de dados"
+export class BaseBiblioteca {
+    listaDeLivros: Livros [];
+    listaDeUsuarios: Usuario [];
+
+    constructor(listaDeLivros: Livros[], listaDeUsuarios: Usuario[]) {
+        this.listaDeLivros = listaDeLivros;
+        this.listaDeUsuarios = listaDeUsuarios;
+  }
+
+  //Listando e gerando usuario cadastrado
+  protected geradorUsuario(usuario: Usuario): boolean {
+    let gerador: boolean = false
+    for (let usuarioCadastrado of this.listaDeUsuarios) {
+      if (usuarioCadastrado.getNome() === usuario.getNome()) {
+        gerador = true
+      }
+    }
+    return gerador
+  }
+
+
+
+//   listar livros disponiveis
+listaDeLivrosDisponiveis(): string {
+    let listaLivros: string = "Livros disponiveis para emprestimo: ";
+    for (let livro of this.listaDeLivros) {
+      if (livro.getStatus() === StatusLivro.DISPONIVEL) { // comando IF verifica o status do livro
+        listaLivros += `${livro.getTitulo()}, `;
+      }
+    }
+    if (listaLivros === "Livros disponiveis para emprestimo: ") {
+      return "Nenhum livro disponivel no momento.";
+    } else return listaLivros;
+  }
+
+  listaDeLivrosEmprestados(): string {
+    let listaLivros: string = "Lista de livros emprestados: ";
+    for (let livro of this.listaDeLivros) {
+      if (livro.getStatus() === StatusLivro.EMPRESTADO) { // comando IF verifica o status do livro
+        listaLivros += `${livro.getTitulo()}, `;
+      }
+    }
+    if (listaLivros === "Lista de livros emprestados: ") { 
+      return "Nenhum livro emprestado no momento.";
+    } else return listaLivros;
+  }
+
+}
 

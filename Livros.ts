@@ -1,6 +1,7 @@
 import { GeneroLivro } from "./GeneroLivro";
 import { StatusLivro} from "./StatusLivro";
 
+// Atributos dos livros 
 export class Livros {
     private titulo: string
     private autor: string
@@ -14,6 +15,7 @@ export class Livros {
         this.status = status //array vazio
     }
 
+    //Retornando atributos
     getTitulo(): string {
         return this.titulo
     }

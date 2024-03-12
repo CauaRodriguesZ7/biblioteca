@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Usuario = void 0;
+//classe para criar atributos do usuario
 var Usuario = /** @class */ (function () {
     function Usuario(nome, cpf, livrosEmprestados, livrosReservados, historicoEmprestimo, multa) {
         this.nome = nome;
@@ -10,12 +11,14 @@ var Usuario = /** @class */ (function () {
         this.historicoEmprestimo = historicoEmprestimo;
         this.multa = multa;
     }
+    //Retornando os atributos do usuario
     Usuario.prototype.getNome = function () {
         return this.nome;
     };
     Usuario.prototype.getCpf = function () {
         return this.cpf;
     };
+    //Retornando status dos livros 
     Usuario.prototype.getLivrosEmprestados = function () {
         return this.livrosEmprestados;
     };
@@ -34,6 +37,7 @@ var Usuario = /** @class */ (function () {
     Usuario.prototype.setHistoricoEmprestimo = function (value) {
         this.historicoEmprestimo = value;
     };
+    // Retornando a multa 
     Usuario.prototype.getMulta = function () {
         return this.multa;
     };

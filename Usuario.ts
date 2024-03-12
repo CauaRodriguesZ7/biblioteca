@@ -1,6 +1,8 @@
 import { GeneroUsuario } from "./GeneroUsuario"
 import { StatusLivro } from "./StatusLivro"
 
+
+//classe para criar atributos do usuario
 export class Usuario {
     private nome: string
     private cpf: string
@@ -18,12 +20,15 @@ export class Usuario {
         this.multa = multa
     }
 
+
+    //Retornando os atributos do usuario
     getNome(): string {
         return this.nome
     }
     getCpf(): string {
         return this.cpf
     }
+    //Retornando status dos livros 
     getLivrosEmprestados(): StatusLivro[] {
         return this.livrosEmprestados
     }
@@ -42,6 +47,7 @@ export class Usuario {
     setHistoricoEmprestimo(value: StatusLivro[]) {
         this.historicoEmprestimo = value
     }
+    // Retornando a multa 
     getMulta(): number {
         return this.multa
     }
