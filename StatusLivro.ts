@@ -1,3 +1,4 @@
+//status de cada livro
 export enum StatusLivro {
     DISPONIVEL  = "Disponivel para Emprestimo",
     EMPRESTADO  = "Livro ja emprestado",

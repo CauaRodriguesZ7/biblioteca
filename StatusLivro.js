@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatusLivro = void 0;
+//status de cada livro
 var StatusLivro;
 (function (StatusLivro) {
     StatusLivro["DISPONIVEL"] = "Disponivel para Emprestimo";
