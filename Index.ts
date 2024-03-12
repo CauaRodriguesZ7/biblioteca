@@ -1,5 +1,4 @@
 import { GeneroLivro } from "./GeneroLivro";
-import { livro } from "./Livro";
 import { StatusLivro } from "./StatusLivro";
 import { Usuario } from "./Usuario";
 
@@ -9,7 +8,8 @@ import { Usuario } from "./Usuario";
 // const livro3 = new livro("titulo3", "ciclano autor", GeneroLivro.FANTASIA, StatusLivro.ATRASADO);
 
 const usuario1 = new Usuario("Caua", "012.164.379-31", [], [], [], 0)
-console.log(usuario1);
+const usuario2 = new Usuario("andre", "012.111.000-31", [], [], [], 0)
+console.log(usuario1, usuario2);
 
 
 
