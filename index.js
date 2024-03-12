@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var GeneroLivro_1 = require("./GeneroLivro");
+var Livros_1 = require("./Livros");
+var StatusLivro_1 = require("./StatusLivro");
 var Usuario_1 = require("./Usuario");
 //Criação de livros para biblioteca --
 // const livro1 = new livro("titulo1", "fulano autor", GeneroLivro.DRAMA, StatusLivro.DISPONIVEL);
@@ -8,6 +11,8 @@ var Usuario_1 = require("./Usuario");
 var usuario1 = new Usuario_1.Usuario("Caua", "012.164.379-31", [], [], [], 0);
 var usuario2 = new Usuario_1.Usuario("andre", "012.111.000-31", [], [], [], 0);
 console.log(usuario1, usuario2);
+var livro1 = new Livros_1.Livros("Livro1", "autor1", GeneroLivro_1.GeneroLivro.DRAMA, StatusLivro_1.StatusLivro.DISPONIVEL);
+console.log(livro1);
 // Cria biblioteca
 // const biblioteca = { livro1, livro2, livro3 }
 // Exibe toda biblioteca

@@ -1,4 +1,5 @@
 import { GeneroLivro } from "./GeneroLivro";
+import { Livros } from "./Livros";
 import { StatusLivro } from "./StatusLivro";
 import { Usuario } from "./Usuario";
 
@@ -10,6 +11,9 @@ import { Usuario } from "./Usuario";
 const usuario1 = new Usuario("Caua", "012.164.379-31", [], [], [], 0)
 const usuario2 = new Usuario("andre", "012.111.000-31", [], [], [], 0)
 console.log(usuario1, usuario2);
+
+const livro1 = new Livros("Livro1", "autor1", GeneroLivro.DRAMA, StatusLivro.DISPONIVEL)
+console.log(livro1)
 
 
 
