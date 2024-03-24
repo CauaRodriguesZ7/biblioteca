@@ -3,6 +3,7 @@
 import { Usuario } from "./Usuario";
 import { Livros } from "./Livros";
 import { StatusLivro } from "./StatusLivro";
+import { GeneroLivro } from "./GeneroLivro";
 
 //Arrays vazios para funcionar como os "banco de dados"
 export class BaseBiblioteca {
@@ -24,8 +25,6 @@ export class BaseBiblioteca {
     }
     return gerador
   }
-
-
 
 //   listar livros disponiveis
 listaDeLivrosDisponiveis(): string {
@@ -50,6 +49,17 @@ listaDeLivrosDisponiveis(): string {
     if (listaLivros === "Lista de livros emprestados: ") { 
       return "Nenhum livro emprestado no momento.";
     } else return listaLivros;
+  }
+
+  // Lista livros por genero
+  livrosDrama(): string {
+    let listaLivros: string = "Drama";
+    for (let livro of this.listaDeLivros) {
+      if (livro.getGenero() === GeneroLivro.DRAMA) { // comando IF verifica o status do livro
+        listaLivros += `${livro.getTitulo()}, `;
+      }
+    }
+     return listaLivros;
   }
 
 }

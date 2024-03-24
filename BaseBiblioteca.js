@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseBiblioteca = void 0;
 var StatusLivro_1 = require("./StatusLivro");
+var GeneroLivro_1 = require("./GeneroLivro");
 //Arrays vazios para funcionar como os "banco de dados"
 var BaseBiblioteca = /** @class */ (function () {
     function BaseBiblioteca(listaDeLivros, listaDeUsuarios) {
@@ -24,7 +25,7 @@ var BaseBiblioteca = /** @class */ (function () {
         var listaLivros = "Livros disponiveis para emprestimo: ";
         for (var _i = 0, _a = this.listaDeLivros; _i < _a.length; _i++) {
             var livro = _a[_i];
-            if (livro.getStatus() === StatusLivro_1.StatusLivro.DISPONIVEL) {
+            if (livro.getStatus() === StatusLivro_1.StatusLivro.DISPONIVEL) { // comando IF verifica o status do livro
                 listaLivros += "".concat(livro.getTitulo(), ", ");
             }
         }
@@ -38,7 +39,7 @@ var BaseBiblioteca = /** @class */ (function () {
         var listaLivros = "Lista de livros emprestados: ";
         for (var _i = 0, _a = this.listaDeLivros; _i < _a.length; _i++) {
             var livro = _a[_i];
-            if (livro.getStatus() === StatusLivro_1.StatusLivro.EMPRESTADO) {
+            if (livro.getStatus() === StatusLivro_1.StatusLivro.EMPRESTADO) { // comando IF verifica o status do livro
                 listaLivros += "".concat(livro.getTitulo(), ", ");
             }
         }
@@ -47,6 +48,17 @@ var BaseBiblioteca = /** @class */ (function () {
         }
         else
             return listaLivros;
+    };
+    // Lista livros por genero
+    BaseBiblioteca.prototype.livrosDrama = function () {
+        var listaLivros = "Drama";
+        for (var _i = 0, _a = this.listaDeLivros; _i < _a.length; _i++) {
+            var livro = _a[_i];
+            if (livro.getGenero() === GeneroLivro_1.GeneroLivro.DRAMA) { // comando IF verifica o status do livro
+                listaLivros += "".concat(livro.getTitulo(), ", ");
+            }
+        }
+        return listaLivros;
     };
     return BaseBiblioteca;
 }());
